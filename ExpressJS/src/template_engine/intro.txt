@@ -1,0 +1,14 @@
+Using template engines with Express
+
+A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+
+Some popular template engines that work with Express are Pug, Mustache, and EJS. The Express application generator uses Jade as its default, but it also supports several others.
+
+To render template files, set the following application setting properties, set in app.js in the default app created by the generator:
+
+1. views, the directory where the template files are located. Eg: app.set('views', './views'). This defaults to the views directory in the application root directory.
+2. view engine, the template engine to use. For example, to use the Pug template engine: app.set('view engine', 'pug').
+
+
+For more information, click this link:
+ https://www.digitalocean.com/community/tutorials/nodejs-express-template-engines#:~:text=There%E2%80%99s%20a%20wide%20variety%20of%20template%20engines%20that,syntax%20and%20uses%20of%20Pug%2C%20EJS%2C%20and%20Mustache.

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wassup Chat App</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <section class="chat-section">
+      <div class="brand">
+        <img src="/wassup.png" height=40 alt="" />
+        <h1>Wassup</h1>
+      </div>
+
+      <div class="message-area">
+          
+          <!-- <div class="incoming message">
+            <h4>Pramod</h4>
+            <p>This is incoming message section.</p>
+          </div>
+
+          <div class="outgoing message">
+            <h4>Harry</h4>
+            <p>This is outgoing message section.</p>
+          </div>         -->
+      </div>
+
+      <div>
+        <textarea id="textarea" cols="30" rows="1" placeholder="Write a message"></textarea>
+      </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>

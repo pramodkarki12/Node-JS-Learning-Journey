@@ -1,0 +1,65 @@
+1. show dbs -> to show the database
+
+
+2. use <database-name> -> create the database (if this name is not taken) 
+			  or make it active database(if this name is already taken).
+
+
+3. db -> to display your active database
+
+4. show collections -> to show the collections(tables).
+
+5. db.<collection-name>.find() -> to display the documents(row) inside the database
+
+6. db.<collection-name>.find().pretty() -> displays beautifully
+
+************ CRUD Operations ************************
+
+*** Create or Insert the document(row) into collections(table) ***
+7. db.<collection-name>.insertOne({ ... }) -> to insert the only one document(row).
+	E.g.., db.pramoddata.insertOne({name: "ReactJS", type: "FrontEnd", database: "Mongodb", videos: 80, active:true})
+
+8. db.<collection-name>.insertMany([{ ... }, { .... }, { ... }]) -> to insert the only many document(row) at the same time.
+	E.g., db.pramoddata.insertMany([{name: "Express", type:"NodeJS", database: "mongoDB", videos: 20, active: true}, 			{name:"NodeJS", type: "BackEnd", database: "mongoDB", videos: 150, active: true}])
+
+
+*** Read or Queries the document into collections(table) ***
+9. db.collection.find(query, projection):
+
+	a. db.pramoddata.find({name: "ReactJS"}).pretty(); -> Get the only MongoDB data as a output
+	
+	b. db.pramoddata.find({name: "ReactJS"}, {name: 1}).pretty() -> Get the only MongoDB data as a output with only the 										name field.
+	(Note : Here, in the name section, 1 denotes that only show the name field excluding others. But, If we write, 0 it 	  		denotes that except name, get the other fields.)
+	
+	c. db.pramoddata.find({name: "ReactJS"}, {_id: 0, name: 1}).pretty() -> Get the mongoDB data without _ID field in it.
+
+	d. db.pramoddata.find({active:true}).pretty().limit(1) -> set the filter to 'active:true' and get only the first 								field with 'active:true' value.
+	[Note: Here, limit(1) means that only show the first field with 'active:true'.]
+
+	e. db.pramoddata.findOne({active:true}) -> Do the same as question(d) but with different method.
+
+	f. db.pramoddb.find({active:true}).pretty().limit(2).skip(1) -> Do the same question(d) but this time, get the 2nd 		field with active:true by skipping the 1st field.
+
+
+*** Update the document into the collection ***
+10. UpdateOne()  =>  db.COLLECTION_NAME.updateOne(<filter>, <update>)
+11. UpdateMany() =>  db.COLLECTION_NAME.updateMany(<filter>, <update>)
+
+	Example.., 
+	
+	a. Update the Javascript type to 'Full Stack'
+	-> db.pramoddata.updateOne( { name: "JavaScript" }, {$set: {type: 'Full Stack'} } )
+	
+	b. Update all the fields with the type value=to 'FrontEnd' and set the value of status to False.
+	-> db.pramoddb.updateMany( { type: "FrontEnd" }, {$set: {active: false} } )
+
+[NOTE: The $set operator replaces the value of a field with the specified value.]
+
+
+*** Delete the document into the collection ***
+12. deleteMany => db.COLLECTION_NAME.deleteMany(DELETION_CRITERIA)
+
+	Example..,
+	
+	a. Delete the field with the type matches 'FrontEnd'
+	-> db.pramoddb.deleteMany({type: 'FrontEnd'})
